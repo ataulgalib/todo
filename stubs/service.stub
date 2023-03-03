@@ -1,0 +1,22 @@
+<?php
+
+namespace {{ namespace }};
+
+use App\Services\Interfaces\{{ class }}Interface;
+use App\Services\BaseService;
+
+class {{ class }} extends BaseService implements {{ class }}Interface
+{
+    /*
+    *  Initialized a __construct to assign main model name to the services
+    *  It is used by $this->model name
+    */
+    public function __construct()
+    {
+        
+    }
+
+
+
+}
+

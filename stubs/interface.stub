@@ -1,0 +1,11 @@
+<?php
+
+namespace {{ namespace }};
+
+interface {{ class }}{
+
+    /*
+    * You need to describ your method properly here if possible use return type also.
+    */
+
+}

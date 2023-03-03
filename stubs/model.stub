@@ -1,0 +1,71 @@
+<?php
+
+namespace {{ namespace }};
+
+use App\Models\Core\Model;
+use App\Services\Interfaces\Models\{{ class }}Interface;
+
+class {{ class }} extends Model implements {{ class }}Interface
+{
+    /*
+    *    GIVE THE TABLE NAME
+    */
+    protected $table = '';
+
+
+    /*
+    *   FETCH THE DATA FROM DATABASE
+    */
+    public function getData($search = [], $pagination = DATA_TABLES_PAGINATION_LIMIT)
+    {
+
+    }
+
+    /*
+    *   STORE THE DATA FROM DATABASE
+    */
+
+    public function storeData($data = []){
+        if(empty($data)){
+            return config('configuration.server_exception_code.validation_fail');
+        }
+        
+
+    }
+
+    /*
+    *   FETCH THE DATA FROM DATABASE BY ID
+    */
+
+    public function getDataById($id = ''){
+        if(empty($id)){
+            return config('configuration.server_exception_code.validation_fail');
+        }
+        
+
+    }
+
+    /*
+    *   UPDATE THE DATA ON DATABASE BY ID
+    */
+
+    public function updateDataById($data = [], $id = ''){
+        if(empty($data) || empty($id)){
+            return config('configuration.server_exception_code.validation_fail');
+        }
+        
+
+    }
+
+    /*
+    *   DELETE THE DATA FROM DATABASE BY ID
+    */
+
+    public function deleteDataById($id = ''){
+        if(empty($id)){
+            return config('configuration.server_exception_code.validation_fail');
+        }
+        
+
+    }
+}

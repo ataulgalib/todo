@@ -1,0 +1,45 @@
+<?php
+
+namespace {{ namespace }};
+
+use App\Http\Requests\Core\Request;
+
+class {{ class }} extends Request
+{
+
+    /**
+     * Get the validation rules that apply to the request. To get the request use $this Object
+     *
+     * @return array<string, mixed>
+     */
+    public function rules()
+    {
+        return [
+            
+        ];
+    }
+
+    /**
+    * when you need to give custom message
+    * return [
+    *   'name.required' => 'name :attribute required',
+    * ];
+    */
+
+    public function messages()
+    {
+        return [];
+    }
+
+    /**
+    * when you need to custom message with your rules method()
+    *  return [
+    *        'required' => ':attribute is required',
+    *  ];
+    */ 
+
+    public function attributes()
+    {
+        return [];
+    }
+}

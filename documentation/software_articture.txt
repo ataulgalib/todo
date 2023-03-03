@@ -1,0 +1,89 @@
+
+APPLICATION RESOURCE
+=====================
+
+1. All menu comes from config/core_menus.php
+2. Every Service Bind with Interface. every interface function discrib it self and with return type.
+3. Core Folder Contains the Application resources.
+4. Core Routes bind by Core/base.php
+5. Application configuration are initialize on config/configuration.php
+6. Application related global constants are initialize on App\Helpers\constants.php
+7. Laravel Defult helper.php file are overrided on App\Helpers\helpers.php which is initialize on public\index.php
+8. The main login should be implemented on Service which must me implements with Interface. In interface there should
+    be described all methods.
+9. All database statement should be written on Model file.
+10. Every Controller should log its repose as well, Exception log are handle on Exceptions\Handler.php file.
+11. Every Trait should be on one specific work and don't use it on Base-service.php or Core Controller or Core Model it should
+    be use hug amount of memory.
+
+
+
+APPLICATION RUN AND USEASE
+==========================
+
+1. Copy the .env.example to .env
+    a. command cp .env.example .env
+    b. composer update
+    c. php artisan key:generate
+    b. php artisan config:cache
+2. Connect with the database
+3. Run php artisan migrate --seed
+4. For Create Service
+
+    php artisan make:service {ServiceName}Service (it will automatice implements the interface)
+    php artisan make:service {ServiceName}Service --a (it will make service, interface and controller)
+    php artisan make:service {ServiceName}Service --i (it will make service and interface)
+    php artisan make:service {ServiceName}Service --c (it will make service and controller)
+
+    Location: App\Services
+
+5. For Create Interface
+
+    php artisan make:interface {InterfaceName}Interface (it will create a interface)
+    php artisan make:interface {InterfaceName}Interface --a (it will make service, interface and controller)
+    php artisan make:interface {InterfaceName}Interface --s (it will make service and interface)
+    php artisan make:interface {InterfaceName}Interface --c (it will make controller and interface)
+
+    Location: App\Services\Interfaces
+
+7. For create Trait
+
+    php artisan make:trait {TraitName}Trait (it will create trait)
+
+    Location: App\Traits
+
+7. Model should be created on Models Folder And extends with Core\Model.php
+8. Controller Should be created on Controllers Folder And extends with Core\Controller.php
+9. There has a helper.php file which contains lots of feature like cache, session, laravel app resources bind etc.
+10. Application admin url is belongs to admin parameter which is changeable from env APP_ADMIN_URL_PREFIX
+11. Application Controller and Model are excepted respectively from Core\Controller.php and Core\Model.php file
+12. Core Folder contains the Application Core files which should be excepted from anywhere.
+13. Core route is on routes\Core\base.php which is secure by web and auth middleware.
+14. When you need to add more route file please add this on RouteServiceProvider.php file as well with parameters.
+15. Most Usable class are singleton in AppServiceProvider.php class on register() method.
+17. On helper class there is a method name setResource() and getResource() should help you to bind your class on
+    a single request. (example: when you need to use select query on a loop and many other else)
+18. When you need to use custom macroble class you can add on Core\MecrosService.php which must be bind in
+    AppServiceProvider.php class on boot() method for what class you need to mecro.
+19. Every model should be implements by modelInterface.php located at App\Services\Models
+
+20. For Create Model Interface Both
+
+    php artisan make:model {ModelName} --i (it should create a Model and Model interface).
+
+    Location: Model = App\Models\
+    Interface = App\Service\Interface\Models
+
+21. For Query Log there is a helper.php method name enableGlobalQueryLog() for genarate raw query and its folder location.
+22. Software configuration are avaibale on config\configuration.php file.
+23. Custome Encryption with php oppen ssl
+
+    ENCRYPTION_METHOD ="AES-256-CBC"
+    ENCRYPTION_SECRET_KEY=""
+    ENCRYPTION_FIXED_IV=""
+    ENCRYPTION_FIXED_SALT=""
+
+
+
+
+
